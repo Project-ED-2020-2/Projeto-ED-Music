@@ -1,9 +1,9 @@
 class Musica:
-  def __init__(self, nome, ano, album, id):
+  def __init__(self, nome, ano, album):
     self._name = str(nome)
     self._year = int(ano)
     self._album = str(album)
-    self._id = int(id)
+    self._id = None
     self._right = None
     self._left = None
   
@@ -36,10 +36,26 @@ class Musica:
     return self._id
   
   @id.setter
-  def id (self, id):
-    self._id = id
+  def id (self, Id):
+    self._id = id(Id)
 
-  def __str__(self):
+  @property
+  def left (self):
+    return self._left
+
+  @left.setter
+  def left (self, dado):
+    self._left = dado
+
+  @property
+  def right (self):
+    return self._right
+  
+  @right.setter
+  def right (self, dado):
+    self._right = dado
+
+  def __str__ (self):
     output = (f'Playlist:\n')
     output += (f'\nID: {self._id}\nNome da música: {self._name}\nAno de lançamento: {self._year}\nÁlbum: {self._album}')
     return output
